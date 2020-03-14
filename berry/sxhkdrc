@@ -4,7 +4,7 @@
 
 # file manager
 super + e
-    wmctrl -s 7 && thunar 
+    thunar 
     
 # application finder
 super + a
