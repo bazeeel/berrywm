@@ -4,10 +4,10 @@
 
 #exec bspwm
 
-exec spectrwm
+#exec spectrwm
 
 #exec dwm
 
-#exec xmonad
+#exec berry
 
 #exec herbstluftwm --locked
