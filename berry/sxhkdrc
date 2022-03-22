@@ -1,70 +1,120 @@
 #
 # wm independent hotkeys
 
+# Default web browser firfox,and brave
+super + {_,shift + } w
+    {$BROWSER, rofi_run -w}
 
-# file manager
-super + e
-    thunar 
+# Terminal emulator
+super + {_,shift + } Return
+     {alacritty, alacritty --title floating}
+
+# Dmenu2 and rofi(window switcher, application launcher)
+super + {_,shift +} d
+    {dmenu_run -nb '#1a1a1a' -nf '#c3cdc8' -sb '#2e8b57' -fn 'JetBrains Mono Nerd Font-12' -p 'Search', rofi_run -r}
+
+# Chat client, gui filemanager
+super + {_,shift + } p
+    {discord, pcmanfm}
     
-# application finder
-super + a
-    xfce4-appfinder    
+super + {_,shift + } r
+     {$TERMINAL -e $FILE, restart}
+    
+# Record and stream
+super + {KP_Home,KP_End}
+    {dmenurecord, live.sh}
+    
+# On/off transparency, pavucontrol
+alt + {a,b}
+   {pavucontrol,spotify}
+   
+# Easy edit configuration files
+super + F2
+    edconf.sh
 
-# terminal emulator
-super + Return
-	st
+# Take screenshot
+super + F4
+    maim ~/Képek/Képernyőképek/`date +%Y-%m-%d_%H:%M:%S`.png
 
-# program launcher
-super + d
-	dmenu_run
-	
-# browser
-super + w
-    firefox	
+# Pick screenshot type
+super + F5
+    maimpick           
+    
+# Wallpaper chenger
+super + F8
+    wal    
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
-# berry hotkeys
-#
+alt + Up
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
 
+alt + Down
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
+
+
+
+
+# berry hotkeys
+
+# [berrywm] move
 super + {h, j, k, l}
     berryc window_move {-50 0, 0 50, 0 -50, 50 0}
 
+# [berrywm] resize
 super + shift +  {h, j, k, l}
     berryc window_resize {-50 0, 0 50, 0 -50, 50 0}
 
+# [berrywm] switch workspace
 super + {1-9}
     berryc switch_workspace {0-9}
 
+# [berrywm] send to workspace
 super + shift + {1-9}
     berryc send_to_workspace {0-9}
 
+# [berrywm] monocle
 super + m
     berryc window_monocle
 
+# [berrywm] toggle fullscreen
 super + f
     berryc fullscreen
 
-super +  p
+# [berrywm] snap right
+super +  Right
     berryc snap_right
 
-super + o 
+# [berrywm] snap left
+super + Left
     berryc snap_left
 
+# [berrywm] toggle decoration
 super + n
     berryc toggle_decorations
 
+# [berrywm] cycle focus
 super + Tab
     berryc cycle_focus
 
+# [berrywm] close window
 super + q
     berryc window_close
 
+# [berrywm] window center
 super + c
     berryc window_center
 
+# [berrywm] quit
+super + shift + q
+    berryc quit
+
+# [berrywm] focus
 ~button1
     berryc pointer_focus
+
+# [berrywm] raise
+super + z
+    berryc window_raise

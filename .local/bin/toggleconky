@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+#The command for starting conky
+
+if pgrep -x "conky" > /dev/null
+then
+	killall conky
+else
+        conky -c  ~/.config/conky/conky.conkyrc
+fi

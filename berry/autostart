@@ -1,28 +1,44 @@
 #!/bin/bash
 
+. "$HOME/.profile"
 
 # Set decoration geometry
 berryc border_width       4
 berryc inner_border_width 0
 berryc title_height       0
-berryc top_gap            0
+#berryc top_gap            0
+berryc edge_gap           60 10 10 10
 
 # Set decoration colors
-berryc focus_color         292D3E
-berryc unfocus_color       292D3E
+berryc focus_color         2e8b57
+#berryc unfocus_color       1a1a1a
 berryc inner_focus_color   FFCB6B
 berryc inner_unfocus_color 565679
-berryc text_focus_color    ffffff
-berryc text_unfocus_color  eeeeee
+#berryc text_focus_color    ffffff
+#berryc text_unfocus_color  eeeeee
+
+# Workspace options
+berryc name_desktop 0 " "
+berryc name_desktop 1 " "
+berryc name_desktop 2 " "
+berryc name_desktop 3 " "
+berryc name_desktop 4 " "
+berryc name_desktop 5 " "
+berryc name_desktop 6 " "
+berryc name_desktop 7 "ﳨ "
+berryc name_desktop 8 " "
+berryc name_desktop 9 " "
 
 # Other options
-berryc smart_place "true"
-berryc draw_text   "true"
-berryc edge_lock   "true"
-berryc set_font    "Dina-9"
-
+berryc smart_place true
+berryc draw_text   false
+berryc edge_lock   true
+berryc set_font    "xft:Jetbrains Mono Nerd Font:size=11"
+berryc focus_follows_pointer true
 
 
 sxhkd -c $HOME/.config/berry/sxhkdrc &
-feh --bg-fill ~/Képek/1.jpg &
-
+# bar
+$HOME/.config/polybar/launch.sh      &
+feh --bg-fill ~/.local/bin/wallpapers/Future/73931.jpg &
+picom --config ~/.config/picom.conf &

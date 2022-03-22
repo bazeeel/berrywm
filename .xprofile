@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# This file runs when a DM logs you into a graphical session.
+
+xrandr --dpi 156
+
+export GDK_SCALE=2
+
+#sxhkd &     # Simple X hotkey daemon for setting up keybinds
+
+mpd &       # Music player daemon
+
+xsetroot -cursor_name left_ptr &   # Change cursor from default x shape
+
+xset r rate 300 50 &	# Speed xrate up
+
+#xrdb .Xresources &
+
+#picom --experimental-backends --shadow-exclude-reg '1920+0-0' --opacity-rule "85:class_g ='urxvt'" --opacity-rule "80:class_g = 'rofi'" --opacity-rule "90:class_g = 'Alacritty'" --inactive-opacity 1.00 --blur-background-exclude "class_g = 'slop'" -CGfF -o 0.70 -O 0.028 -I 0.028 -t 0 -l 0 -r 3 -D2 -m 1.00 &
+
+#picom &
+
+dunst &                                # notification daemon
+
+unclutter &       # hide mouse pointer when idle
+
+nm-applet &        # networkmanager applet/wifi,ethernet settings
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+#zathura ~/.local/share/Magyarch-i3.pdf &
+sleep 8s && notify-send 'Nyomja meg a Super+F1-et a használati utasításért.' -t 10000 &
+
+xset s off -dpms &
+
+#conky -c ~/.config/conky/magyarch.conkyrc &
